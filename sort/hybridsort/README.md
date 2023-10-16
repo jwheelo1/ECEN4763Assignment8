@@ -35,7 +35,7 @@ You can then check that your sorted array is equal to sorted(test_arr)
 ## Interface
 
 - The constructor __init__(self) initializes the variable self.array to an empty array to use when sorting and any other variables you find necessary.
-- The function sort(self, array) sorts the array using TimSort passed in the argument and returns True if was able to sort and False otherwise. The sorted array should be stored in the class variable self.array.
+- The function sort(self, array) sorts the array using TimSort passed in the argument and returns True if was able to sort and False otherwise. The sorted array should be stored in the class variable self.array. The value of array should also be sorted, i.e. if it is referenced after the sort is called, it should be in sorted order.
 - The function get_sorted_list(self) returns the sorted array
 - The function get_space_complexity(), returns the space complexity of the sorting algorithm.
 - The function get_time_complexity(), returns the time complexity of the sorting algorithm.
@@ -47,7 +47,12 @@ You can then check that your sorted array is equal to sorted(test_arr)
 - Sort a given array, various lengths, random and non-random
 - Sort small and very large arrays. Use random in your testing to generate sufficiently large arrays.
 - Sort characters, strings, numbers, floats, etc.
-
+- Tets that array is sorted after calling sort, i.e.
+  ```
+  self.sort.sort(array)
+  self.assertEqual(array, sorted(array))
+  ```
+  this works because the array is passed by reference and should be updated while sort is running.
 ## Corner Cases
 
 - Sorting an array consisting of same values in different indices.
