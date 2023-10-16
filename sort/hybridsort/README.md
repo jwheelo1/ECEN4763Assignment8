@@ -1,6 +1,6 @@
 # Hybrid Sort
 
-A hybrid sort is the algorithm that combines two or more sorting algorithms to eventually sort a single array in the increasing or decreasing order. In this case, you will be implementing TimSort which combines together Merge Sort and Insertion Sort. TimSort is used as the default sorting algorithm in many programming languages, including python.
+A hybrid sort is the algorithm that combines two or more sorting algorithms to eventually sort a single array in an increasing or decreasing order. In this assignment, you will be implementing TimSort which combines together Merge Sort and Insertion Sort. TimSort is used as the default sorting algorithm in many programming languages, including python.
 
 TimSort performs insertion sort on runs of a given size, in our case 32. 
 
@@ -8,9 +8,9 @@ The first 32 entries in the list will be sorted with insertion sort, then the ne
 
 The merge operation from merge sort is used to combine together neighboring runs of length 32, so that all runs are of length 64. Then, neighboring runs of length 64 can be combined into runs of length 128. This process is repeated until the run length is greater than the length of the list.
 
-In testing, it is very important to tests large lists for this class. This is because shorter lists may have a smaller size than the run length, and so the merge operation will never be run. A size of greater than 1024 will allow for good testing. An example test array is given below:
+In testing, it is very important to test large lists for this class. This is because shorter lists may have a smaller size than the run length, and so the merge operation will never be run. A size of greater than 1024 will allow for good testing. An example test array is given below:
 
-test_arr = [random.uniform(-10000, 10000) for _ in range(0, 1000)]
+test_arr = [random.uniform(-10000, 10000) for _ in range(2000)]
 
 You can then check that your sorted array is equal to sorted(test_arr)
 
@@ -44,15 +44,20 @@ You can then check that your sorted array is equal to sorted(test_arr)
 ## Tests
 
 - Space and time complexity of the sorting algorithm.
-- Sort a given array
+- Sort a given array, various lengths, random and non-random
 - Sort small and very large arrays. Use random in your testing to generate sufficiently large arrays.
 - Sort characters, strings, numbers, floats, etc.
 
 ## Corner Cases
 
 - Sorting an array consisting of same values in different indices.
-- Sorting an array that includes values of different types (return false)
+- Sorting an array that includes values of incompatible types (return false)
+- example random arrays:
+  - strings: [''.join(random.choices(string.ascii_letters + string.digits, k=10)) for _ in range(1000)]
+  - characters: random.choices(string.ascii_letters + string.digits, k=10000)
+  - floats: [random.uniform(-10000, 10000) for _ in range(0, 1000)]
+  - ints: [random.randint(-10000, 10000) for _ in range(0, 1000)]
 
 ## Library
 
-You can only use basic python libraries (no special imports).
+You can only use basic python libraries (no special imports) other than random for testing.
